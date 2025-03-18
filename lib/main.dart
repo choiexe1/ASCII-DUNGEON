@@ -1,5 +1,6 @@
 import 'dart:io';
 import 'dart:math';
+import 'dart:io';
 import 'constant.dart' as constant;
 
 class Dungeon {
@@ -115,8 +116,10 @@ class Dungeon {
   }
 
   void gameLoop() {
-    stdin.echoMode = false;
-    stdin.lineMode = false;
+    if (Platform.isMacOS) {
+      stdin.echoMode = false;
+      stdin.lineMode = false;
+    }
     print("이동: WASD (또는 화살표 키) | 종료: Q");
 
     while (true) {
